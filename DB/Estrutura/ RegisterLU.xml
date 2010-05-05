@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+-
+- phpMyAdmin XML Dump
+- version 3.2.2.1deb1
+- http://www.phpmyadmin.net
+-
+- Servidor: localhost
+- Tiempo de generación: 04-05-2010 a las 01:31:40
+- Versión del servidor: 5.1.37
+- Versión de PHP: 5.2.10-2ubuntu6.4
+-->
+
+<!--
+- Base de datos: 'RegisterLU'
+-->
+<RegisterLU>
+  <!-- Tabla Asistencia -->
+  <!-- Tabla Persona -->
+  <!-- Tabla Reporte -->
+</RegisterLU>
+
