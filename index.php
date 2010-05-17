@@ -5,15 +5,20 @@
 	<title>Sistema de Registro de Entrada y Salida, Lineas Unidas</title>
 </head>
 <body>
-<?include("librerias/Libreria.php");?>
+<?php
+include_once("clases/Persona.php");
+include_once("clases/Asistencia.php");
+include_once("librerias/Libreria.php");
+conectarDB();
+?>
 <div id="header">
 <?addHeader();?>
 </div>
 <div id="main">
 <?php
 
-if($registro != null){
-addMainRegisterShow();
+if($Cedula != null){
+updateAsistencia($Cedula);
 }
 else{
 addMainRegister();
