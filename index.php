@@ -5,22 +5,22 @@
 	<title>Sistema de Registro de Entrada y Salida, Lineas Unidas</title>
 </head>
 <body>
-
+<?include("librerias/Libreria.php");?>
 <div id="header">
-<?php
-require("Librerias/libreria.php");
-header();
-?>
+<?addHeader();?>
 </div>
 <div id="main">
-	<form action="registrarAsistencia.php" method="post" title="Formularo de Registro">
-		<label>Clave</label>
-		<input type="password" title="Ingrese su Clave de 4 Digitos" />
-		<br />
-		<input type="submit" value="Registrar"/>
-		<input type="reset" value="Cancelar"/>
-	</form>
+<?php
+
+if($registro != null){
+addMainRegisterShow();
+}
+else{
+addMainRegister();
+}
+?>
 </div>
+<?addFooter();?>
 <div id="footer">
 </div>
 </body>
