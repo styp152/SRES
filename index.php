@@ -5,22 +5,27 @@
 	<title>Sistema de Registro de Entrada y Salida, Lineas Unidas</title>
 </head>
 <body>
-
-<div id="header">
 <?php
-require("Librerias/libreria.php");
-header();
+include_once("clases/Persona.php");
+include_once("clases/Asistencia.php");
+include_once("librerias/Libreria.php");
+conectarDB();
 ?>
+<div id="header">
+<?addHeader();?>
 </div>
 <div id="main">
-	<form action="registrarAsistencia.php" method="post" title="Formularo de Registro">
-		<label>Clave</label>
-		<input type="password" title="Ingrese su Clave de 4 Digitos" />
-		<br />
-		<input type="submit" value="Registrar"/>
-		<input type="reset" value="Cancelar"/>
-	</form>
+<?php
+
+if($Cedula != null){
+updateAsistencia($Cedula);
+}
+else{
+addMainRegister();
+}
+?>
 </div>
+<?addFooter();?>
 <div id="footer">
 </div>
 </body>
