@@ -33,6 +33,8 @@ function updateAsistencia($Cedula){
 		return;
 	}
 	$var=DATE('Y/m/d');
+	$hora = getdate(time());
+	$correctHora=$hora["hours"].':'.$hora["minutes"].':'.$hora["seconds"];
 	mysql_free_result($result);
 	$SQL="SELECT * FROM Persona,Asistencia WHERE Persona.Cedula='$Cedula' and Asistencia.Cedula='$Cedula' and Asistencia.Fecha='$var' and Asistencia.HoraSalida='00:00:00'";
 	$result=mysql_query($SQL);
@@ -40,17 +42,18 @@ function updateAsistencia($Cedula){
 	$asisten = new asistencia();
 	$asisten->updateDatos($row);
 	if($asisten->horaEntrada==null){
-		echo gettype($asisten->idAsistencia);
+		$asisten->horaEntrada=$correctHora;
+		$SQL="INSERT INTO Asistencia (IdAsistencia, HoraEntrada, HoraSalida, Fecha, Cedula, nota) VALUES ('', '$correctHora', '', '$var', '$Cedula', '')";
+		@mysql_query($SQL)or die($error+"el Registro de Entrada "+$sugerencia+$admin+$correo);
 	}
 	else{
-		$hora = getdate(time());
-		$asisten->horaSalida=$hora["hours"].':'.$hora["minutes"].':'.$hora["seconds"];
+		$asisten->horaSalida=$correctHora;
 		$salida=$asisten->horaSalida;
 		$id=$asisten->idAsistencia;
 		$SQL = "UPDATE Asistencia SET HoraSalida='$salida' WHERE IdAsistencia='$id'";
 		@mysql_query($SQL)or die($error+"el Registro de Salida "+$sugerencia+$admin+$correo);
-		addMainRegisterShow($person,$asisten);
 	}
+	addMainRegisterShow($person,$asisten);
 	mysql_free_result($result);
 
 }
