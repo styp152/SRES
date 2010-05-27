@@ -5,6 +5,7 @@ class persona{
 	var $nacionalidad;
 	var $cedula;
 	var $nivelUsuario;
+	var $clave;
 
 function __construct(){}
 
@@ -18,6 +19,7 @@ function updateDatos($parametro){
 	$this->nacionalidad=$parametro['Nacionalidad'];
 	$this->cedula=$parametro['Cedula'];
 	$this->nivelUsuario=$parametro['NivelUsuario'];
+	$this->clave=$parametro['Clave'];
 }
 }
 ?>
