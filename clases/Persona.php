@@ -13,6 +13,10 @@ function getNombre(){
 	return $this->nombre;
 }
 
+function setNombre($nombre){
+	$this->nombre=$nombre;
+}
+
 function updateDatos($parametro){
 	$this->nombre=$parametro['Nombre'];
 	$this->apellido=$parametro['Apellido'];
