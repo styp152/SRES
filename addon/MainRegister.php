@@ -8,7 +8,8 @@ $var = '<form action="index.php" method="post" title="Formularo de Registro">
 		<input type="submit" value="Registrar"/>
 		<input type="reset" value="Limpiar"/>
 	</form>
-	<a href="index.php?Control=1">Sistema de Control de Asistencia</a>
+	<br />
+	<!--<a href="index.php?Control=1">Sistema de Control de Asistencia</a>-->
 	';
 echo $var;
 ?>

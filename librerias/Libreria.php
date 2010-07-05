@@ -5,6 +5,10 @@ include_once("clases/Reporte.php");
 $Control = $_REQUEST['Control'];
 $Cedula = $_REQUEST['Cedula'];
 $Clave = $_REQUEST['Clave'];
+$persona = $_REQUEST['persona'];
+$mes = $_REQUEST['mes'];
+$fecha1 = $_REQUEST['fecha1'];
+$fecha2 = $_REQUEST['fecha2'];
 $error = "Error al Realizar ";
 $sugerencia = "Por Favor Contactar al Administrador del Sistema: ";
 $admin= "Typson Sanchez ";
@@ -80,6 +84,26 @@ function initControlAsistencia($Cedula, $Clave){
 		return "1";
 	}
 	include('addon/InitConsultaControl.php');
+	return "0";
+}
+
+function showControlAsistencia($persona, $mes, $fecha1, $fecha2){
+	if($mes == "0"){
+		$fecha1='2010/'.$mes.'/1';
+		$fecha2='2010/'.$mes.'/30';
+	}
+	echo (int)$mes;
+	$SQL="SELECT * FROM Persona,Asistencia WHERE Persona.Cedula='$persona' and Asistencia.Cedula='$persona' and fecha>='$fecha1' and fecha<='$fecha2'";
+	$person=obtenerPersonaDB($SQL);
+	$result=mysql_query($SQL);
+	$i=0;
+	while($row=mysql_fetch_array($result)){
+		$asistencia[$i]= new asistencia();
+		$asistencia[$i]->updateDatos($row);
+		$i++;
+	}
+	mysql_free_result($result);
+	include('addon/showControlAsistencia.php');
 	return "0";
 }
 
