@@ -9,7 +9,6 @@ $var = '<form action="index.php" method="post" title="Formularo de Registro">
 		<input type="reset" value="Limpiar"/>
 	</form>
 	<br />
-	<!--<a href="index.php?Control=1">Sistema de Control de Asistencia</a>-->
 	';
 echo $var;
 ?>

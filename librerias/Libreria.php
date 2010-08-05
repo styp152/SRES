@@ -3,6 +3,7 @@ include_once("clases/Asistencia.php");
 include_once("clases/Persona.php");
 include_once("clases/Reporte.php");
 $Control = $_REQUEST['Control'];
+$Principal = $_REQUEST['Principal'];
 $Cedula = $_REQUEST['Cedula'];
 $Clave = $_REQUEST['Clave'];
 $persona = $_REQUEST['persona'];

@@ -8,7 +8,7 @@ echo $person->nacionalidad;
 echo '-';
 echo $person->cedula;
 echo '</h4>';
-echo '<table align="center" border="1"><tr><td>Hora de Entrada</td><td>Hora de Salida</td></tr><tr><td>';
+echo '<table align="center" border="0"><tr><td>Hora de Entrada</td><td>Hora de Salida</td></tr><tr><td>';
 echo $asisten->horaEntrada;
 echo '</td><td>';
 if ($asisten->horaSalida=='00:00:00'){
