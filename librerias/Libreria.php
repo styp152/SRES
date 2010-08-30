@@ -2,6 +2,8 @@
 include_once("clases/Asistencia.php");
 include_once("clases/Persona.php");
 include_once("clases/Reporte.php");
+$intranetcedula = $_REQUEST['cedula'];
+$intranetclave = $_REQUEST['clave'];
 $Control = $_REQUEST['Control'];
 $Principal = $_REQUEST['Principal'];
 $Cedula = $_REQUEST['Cedula'];
@@ -89,7 +91,7 @@ function initControlAsistencia($Cedula, $Clave){
 }
 
 function showControlAsistencia($persona, $mes, $fecha1, $fecha2){
-	if($mes == "0"){
+	if($mes != "0"){
 		$fecha1='2010/'.$mes.'/1';
 		$fecha2='2010/'.$mes.'/30';
 	}
@@ -105,6 +107,15 @@ function showControlAsistencia($persona, $mes, $fecha1, $fecha2){
 	}
 	mysql_free_result($result);
 	include('addon/showControlAsistencia.php');
+	return "0";
+}
+
+function loginIntranet($Cedula, $Clave){
+	$SQL="SELECT * FROM Persona WHERE Cedula='$Cedula' and Clave='$Clave'";
+	$person=obtenerPersonaDB($SQL);
+	if($person->cedula==null and $person->clave == null){
+		return "1";
+	}
 	return "0";
 }
 

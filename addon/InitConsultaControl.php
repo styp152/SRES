@@ -15,13 +15,13 @@ if($person->nivelUsuario >= 2){
 	}
 	$var = '<select name="persona" title="Seleciona la Persona a Consultar">
 					<label>De: </label>
-					<option value="0"></option>';
+					<option value=""></option>';
 	echo $var;
 	$j=0;
 	while($persona[$j]!=null){
 		$var = '<option value="';
 		echo $var;
-		echo $persona[$j]->getNombre();
+		echo $persona[$j]->cedula;
 		echo '">';
 		echo $persona[$j]->getNombre(). " " . $persona[$j]->apellido;
 		$var = '</option>';
@@ -59,11 +59,26 @@ $var = '
 				<br />
 				<h4><label>Por Rango de Días</label></h4>
 				<label>Fecha Inicial</label>
-				<input name= "fecha1" type="text" title="Selecione su Fecha de Inicio a la Consulta" />
+				<input id="fecha1" size= "28" name="fecha1" class="for_txtInputFecha" type="text" value="" tabindex="2" readonly="readonly" />
+				<img class="for_imgFecha" id="Imgfecha1" src="calendario/calendario.png" title="Seleccione fecha" alt="Imagen del Calendario" aling="top" />
+				<!-- definicion de los calendario en el formulario -->
+				    <script type="text/javascript">
+				        Calendar.setup({inputField:"fecha1", button:"Imgfecha1"});
+				        Calendar.setup({inputField:"fecha1", eventName: "click", button:"Imgfecha1"});
+			            </script>
+				<!-- hasta aqui definicion del calendario -->
 				<br />
 				<label>Fecha Final</label>
-				<input name= "fecha2" type="text" title="Selecione su Fecha Final a la Consulta" />
+				<input id="fecha2" size= "28" name="fecha2" class="for_txtInputFecha" type="text" value="" tabindex="2" readonly="readonly" />
+				<img class="for_imgFecha" id="Imgfecha2" src="calendario/calendario.png" title="Seleccione fecha" alt="Imagen del Calendario" aling="top" />
+				<!-- definicion de los calendario en el formulario -->
+				    <script type="text/javascript">
+				        Calendar.setup({inputField:"fecha2", button:"Imgfecha2"});
+				        Calendar.setup({inputField:"fecha2", eventName: "click", button:"Imgfecha2"});
+			            </script>
+				<!-- hasta aqui definicion del calendario -->
 				<br />
+				<input type="hidden" name="Principal" value="2"/> 	
 				<input type="submit" value="Consultar"/>
 				<input type="reset" value="Limpiar"/>
 			</form>

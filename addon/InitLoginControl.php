@@ -9,6 +9,7 @@ $var = '
 				<label>Clave</label>
 				<input name= "Clave" type="password" title="Ingrese su Clave de 4 Digitos" />
 				<br />
+				<input type="hidden" name="Principal" value="2"/>
 				<input type="submit" value="Ingresar"/>
 				<input type="reset" value="Limpiar"/>
 			</form>
